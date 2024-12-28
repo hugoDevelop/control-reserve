@@ -1,0 +1,63 @@
+<div class="container mt-4">
+  <h2>Gestionar Usuarios</h2>
+  <hr />
+  <!-- Formulario de creación -->
+  <app-form
+    #createUserForm
+    [fields]="formFields"
+    [validations]="formValidations"
+    [initialData]="initialData"
+    title="Crear Usuario"
+    submitLabel="Crear Usuario"
+    (submitForm)="onSubmitForm($event)"
+  >
+  </app-form>
+  <hr />
+  <app-table
+    [data]="users"
+    [columns]="columns"
+    title="Usuarios"
+    [showActions]="true"
+    editButtonLabel="Editar"
+    deleteButtonLabel="Eliminar"
+    (edit)="onEdit($event)"
+    (delete)="onDelete($event)"
+  >
+  </app-table>
+
+  <!-- Modal para editar usuario -->
+  <div
+    class="modal fade"
+    id="editUserModal"
+    tabindex="-1"
+    aria-labelledby="editUserModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editUserModalLabel">Editar Usuario</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <!-- Formulario de edición -->
+          <app-form
+            #editUserForm
+            [fields]="formFields"
+            [validations]="formValidations"
+            [initialData]="selectedUser"
+            title="Editar Usuario"
+            submitLabel="Guardar Cambios"
+            (submitForm)="onSubmitEditForm($event)"
+          >
+          </app-form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

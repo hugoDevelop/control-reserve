@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "+ftgZcea0YYP2MHA4alTgIQFIkI1s9R3Nk3IgYI7W5A=",
+  "Source": "control-reserve-back-end",
+  "BasePath": "_content/control-reserve-back-end",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

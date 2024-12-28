@@ -1,0 +1,52 @@
+<div class="form-container">
+  <div class="container mt-4">
+    <h3>{{ title }}</h3>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div
+        *ngFor="let field of fields"
+        class="form-group"
+        [ngClass]="{ 'd-none': field.hidden }"
+      >
+        <label [for]="field.name">{{ field.label }}</label>
+        <input
+          *ngIf="field.type === 'text'"
+          [type]="field.type"
+          [formControlName]="field.name"
+          [id]="field.name"
+          class="form-control"
+        />
+        <input
+          *ngIf="field.type === 'email'"
+          [type]="field.type"
+          [formControlName]="field.name"
+          [id]="field.name"
+          class="form-control"
+        />
+        <input
+          *ngIf="field.type === 'datetime-local'"
+          [type]="field.type"
+          [formControlName]="field.name"
+          [id]="field.name"
+          class="form-control"
+        />
+        <select
+          *ngIf="field.type === 'select'"
+          [formControlName]="field.name"
+          [id]="field.name"
+          class="form-control"
+        >
+          <option *ngFor="let option of field.options" [value]="option.id">
+            {{ option.name }}
+          </option>
+        </select>
+      </div>
+      <button
+        type="submit"
+        class="btn btn-primary mt-2"
+        [disabled]="form.invalid || isLoading"
+      >
+        {{ submitLabel }}
+      </button>
+    </form>
+  </div>
+</div>

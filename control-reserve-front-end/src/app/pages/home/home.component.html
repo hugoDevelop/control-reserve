@@ -1,0 +1,32 @@
+<app-table 
+  [data]="reservations" 
+  [columns]="columns" 
+  title="Reservas" 
+  [showActions]="true" 
+  editButtonLabel="Editar" 
+  deleteButtonLabel="Cancelar"
+  (edit)="onEdit($event)"
+  (delete)="onDelete($event)">
+</app-table>
+
+<!-- Modal para editar reserva -->
+<div class="modal fade" id="editReservationModal" tabindex="-1" aria-labelledby="editReservationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editReservationModalLabel">Editar Reserva</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-form 
+          [fields]="formFields" 
+          [validations]="formValidations" 
+          [initialData]="selectedReservation" 
+          title="Editar Reserva" 
+          submitLabel="Guardar Cambios"
+          (submitForm)="onSubmitEditForm($event)">
+        </app-form>
+      </div>
+    </div>
+  </div>
+</div>

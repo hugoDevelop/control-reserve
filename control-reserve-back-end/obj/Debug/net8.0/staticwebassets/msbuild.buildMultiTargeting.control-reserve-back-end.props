@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\control-reserve-back-end.props" />
+</Project>
